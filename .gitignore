@@ -1,0 +1,14 @@
+# Put language specific ignores in <language>/.gitignore
+
+**/.DS_Store
+
+.idea
+**/*.swp
+
+*.iml
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build/

@@ -1,0 +1,12 @@
+[versions]
+gradle-wrapper = "8.4"
+jdk-source = "17"
+jdk-target = "17"
+junit = "5.8.2"
+
+[plugins]
+
+[libraries]
+
+junit = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junitEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
