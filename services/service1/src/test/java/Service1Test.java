@@ -1,7 +1,14 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 public class Service1Test {
+
+    @Test
+    void longTest() throws InterruptedException {
+        Thread.sleep(Duration.ofSeconds(5).toMillis());
+    }
 
     @Test
     void test1() {
@@ -22,12 +29,11 @@ public class Service1Test {
 //        Assertions.assertNull(Library2Enum.ONE);
     }
 
-    private final Api1 api = () -> 1;
-
     @Test
     void testApi1() {
         // In library1: dependency is api(":api1")
         // api1 is a transitive dependency
+        Api1 api = () -> 1;
         Assertions.assertEquals(1, api.return1());
     }
 

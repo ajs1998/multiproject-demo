@@ -1,7 +1,14 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 public class Library1Test {
+
+    @Test
+    void longTest() throws InterruptedException {
+        Thread.sleep(Duration.ofSeconds(5).toMillis());
+    }
 
     @Test
     void test1() {
@@ -15,10 +22,9 @@ public class Library1Test {
         Assertions.assertNotNull(Library2Enum.ONE);
     }
 
-    private final Api1 api = () -> 1;
-
     @Test
     void testApi1() {
+        Api1 api = () -> 1;
         Assertions.assertEquals(1, api.return1());
     }
 
