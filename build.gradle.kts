@@ -16,7 +16,7 @@ subprojects {
     }
 
     tasks {
-        /**
+        /*
          * To update the JDK version:
          *
          * Change the jdk version in libs.versions.toml
@@ -46,7 +46,24 @@ subprojects.filter {
 
 tasks {
 
-    /**
+    // Run `./gradlew graph -q` for the project dependency tree
+    register("graph") {
+        doLast {
+            val map = mutableMapOf<String, MutableSet<String>>()
+            subprojects.forEach { project ->
+                project.configurations
+                    .flatMap { it.dependencies}
+                    .filterIsInstance<ProjectDependency>()
+                    .forEach { dep ->
+                        map.getOrPut (project.name) { mutableSetOf() }
+                            .add(dep.dependencyProject.name)
+                    }
+            }
+            logger.quiet(map.toString())
+        }
+    }
+
+    /*
      * To update the Gradle wrapper version:
      *
      * Change the gradle-wrapper version in libs.versions.toml
