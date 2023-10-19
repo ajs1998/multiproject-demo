@@ -6,7 +6,7 @@ import java.time.Duration;
 public class Library1Test {
 
     @Test
-    void longTest() throws InterruptedException {
+    void slowTest() throws InterruptedException {
         Thread.sleep(Duration.ofSeconds(5).toMillis());
     }
 
