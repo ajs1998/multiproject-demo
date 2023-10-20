@@ -10,3 +10,9 @@ listOf("libraries", "services")
         include(dir.name)
         project(":${dir.name}").projectDir = dir
     }
+
+buildCache {
+    local {
+        directory = File(rootDir, "build-cache")
+    }
+}
