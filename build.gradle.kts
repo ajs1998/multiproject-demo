@@ -16,6 +16,13 @@ subprojects {
     }
 
     tasks {
+
+        clean {
+            doLast {
+                File(rootDir, "build-cache").deleteRecursively()
+            }
+        }
+
         /*
          * To update the JDK version:
          *
@@ -31,6 +38,7 @@ subprojects {
         test {
             useJUnitPlatform()
         }
+
     }
 
 }
