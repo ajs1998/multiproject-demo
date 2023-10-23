@@ -13,4 +13,4 @@
 # Ignore Gradle build output and build-cache directories
 build/
 build-cache/
-
+build-cache.lock
