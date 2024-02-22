@@ -10,6 +10,7 @@ subprojects {
         mavenCentral()
     }
 
+    // Every project is testable
     dependencies {
         testImplementation(rootProject.libs.junit)
         testRuntimeOnly(rootProject.libs.junitEngine)
@@ -52,13 +53,15 @@ tasks {
      * Change the gradle-wrapper version in libs.versions.toml
      * Run `./gradlew wrapper`
      * Commit the changes
+     *
+     * Don't change the version in the gradle-wrapper.properties file manually
      */
     wrapper {
         gradleVersion = libs.versions.gradle.wrapper.get()
         distributionType = if (System.getenv("CI").toBoolean()) {
             Wrapper.DistributionType.BIN
         } else {
-            // Useful if you ever want to read the source and javadocs instead of decompiled classes
+            // Useful for local development to read the source and javadocs instead of decompiled classes
             Wrapper.DistributionType.ALL
         }
     }

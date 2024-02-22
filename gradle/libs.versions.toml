@@ -1,8 +1,8 @@
 [versions]
-gradle-wrapper = "8.4"
-jdk-source = "17"
-jdk-target = "17"
-junit = "5.8.2"
+gradle-wrapper = "8.6"
+jdk-source = "21"
+jdk-target = "21"
+junit = "5.10.2"
 
 [plugins]
 
